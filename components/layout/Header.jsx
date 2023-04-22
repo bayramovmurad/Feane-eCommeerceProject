@@ -12,7 +12,7 @@ const Header = () => {
     const router = useRouter()
 
     return (
-        <div className={`h-[5.5rem] z-50 relative ${router.asPath === "/" ? "bg-transparent" : "bg-secondary"
+        <div className={`h-[5.5rem]  z-[9999] relative ${router.asPath === "/" ? "bg-transparent" : "bg-secondary"
             }`}>
             <div className="container mx-auto text-white flex justify-between items-center h-full">
                 <Logo />
@@ -55,7 +55,6 @@ const Header = () => {
                     </a>
                     <button className="sm:hidden inline-block" onClick={() => setIsMenuModal(true)}>
                         <GiHamburgerMenu className="text-xl hover:text-primary transition-all" />
-
                     </button>
                 </div>
             </div>
