@@ -20,6 +20,7 @@ module.exports = {
         primary: "#ffbe33",
         secondary: "#222831",
         danger: "#ff0000",
+        blackrgba: 'rgba(0, 0, 0, 0.54)',
       },
       fontFamily: {
         dancing: ["Dancing Script", "cursive"],

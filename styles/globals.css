@@ -18,7 +18,7 @@ body {
 }
 
 .slick-dots {
-  @apply !flex  justify-start w-full;
+  @apply !flex  justify-center w-full;
 }
 
 .slick-dots .slick-active div {
@@ -27,4 +27,23 @@ body {
 
 .slick-dots div {
   @apply !m-0 !mt-8;
+}
+
+  @keyframes ring {
+    0%{
+      transform:rotate(0deg);
+      box-shadow: 1px 5px 2px #ffbe33;
+    }
+    50%{
+      transform:rotate(180deg);
+      box-shadow: 1px 5px 2px #ffbe33;
+    }
+    100%{
+      transform:rotate(360deg);
+      box-shadow: 1px 5px 2px #ffbe33;
+    }
+}
+
+.loader{
+  animation: ring 2s linear infinite;
 }

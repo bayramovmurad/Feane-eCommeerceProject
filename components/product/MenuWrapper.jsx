@@ -1,7 +1,14 @@
+import { useState } from "react"
 import Title from "../ui/Title"
 import MenuItem from "./MenuItem"
 const MenuWrapper = () => {
+  const [showCard,setShowCard] =useState(false);
+
+  function cardShow(){
+    setShowCard(!showCard)
+  }
     return (
+
         <div className="container mx-auto  mb-16">
         <div className="flex flex-col items-center w-full">
           <Title addClass="text-[40px]">Our Menu</Title>
@@ -18,10 +25,22 @@ const MenuWrapper = () => {
         <MenuItem />
         <MenuItem />
         <MenuItem />
+       {
+        showCard ?
+        <>
         <MenuItem />
         <MenuItem />
         <MenuItem />
-        <MenuItem />
+        </>:null
+       }
+      </div>
+      <div className="flex items-center justify-center m-12">
+      <button onClick={()=>cardShow()} className="w-44 h-14 bg-primary rounded text-lg hover:text-white  hover:bg-secondary duration-500 transition-all">
+        {
+          showCard?
+          <p>Show Less</p>:<p>Show More</p>
+        }
+      </button>
       </div>
     </div>
     )

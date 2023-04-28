@@ -6,8 +6,8 @@ const About = () => {
     <div className="bg-secondary py-14">
     <div className="container mx-auto lg:grid lg:grid-cols-2 sm:flex-col lg:gap-20  items-center text-white  ">
       <div className="flex justify-center">
-        <div className="relative sm:w-[445px] sm:h-[600px] lg:mb-0 sm:mb-20 mb-10  flex justify-center w-[300px] h-[450px]">
-          <Image src="/images/about-imgec.png" alt="" layout="fill" />
+        <div className="relative sm:w-[370px] sm:h-[570px] lg:mb-0 sm:mb-20 mb-10  flex justify-center w-[300px] h-[450px]">
+          <Image src="/images/aboutsec.png" alt="" layout="fill" />
         </div>
       </div>
       <div>
