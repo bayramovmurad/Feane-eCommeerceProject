@@ -1,4 +1,3 @@
-import React from "react";
 import Input from "./from/Input";
 import Title from "./ui/Title";
 import {useFormik } from "formik";
@@ -75,7 +74,7 @@ const Reservation = () => {
 
 
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-8">
       <Title addClass="text-[40px] mb-10">Book A Table</Title>
       <div className="flex justify-between flex-wrap gap-10">
         <form className="lg:flex-1 w-full" onSubmit={handleSubmit}>

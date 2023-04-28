@@ -5,6 +5,7 @@ import MenuWrapper from "@/components/product/MenuWrapper";
 import About from "@/components/About";
 import Reservation from "@/components/Resevation";
 import Customers from "@/components/customers/Customers";
+import BestFood from "@/components/BestFood";
 
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
       <Campaigns/>
       <MenuWrapper/>
       <About/>
+      <BestFood/>
       <Reservation/>
       <Customers/>
     </React.Fragment>
