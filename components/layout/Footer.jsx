@@ -16,11 +16,11 @@ const Footer = () => {
               </div>
               <div>
                 <i className="fa fa-phone"></i>
-                <span className="inline-block ml-2">Call +01 1234567890</span>
+                <span className="inline-block ml-2">Call +994503324844</span>
               </div>
               <div>
                 <i className="fa fa-envelope"></i>
-                <span className="inline-block ml-2">demo@gmail.com</span>
+                <span className="inline-block ml-2">mbayramov340@gmail.com</span>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-center mt-10">
-          © 2022 All Rights Reserved By Free Html Templates
+          © 2023 All Feane Restaurant <sup>®</sup>
         </p>
       </div>
     </div>

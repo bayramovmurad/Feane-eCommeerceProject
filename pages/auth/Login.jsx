@@ -58,9 +58,11 @@ const Login = () => {
                     }
                 </div>
                 <div className="flex flex-col w-full gap-y-3 mt-6">
-                    <button className="btn-primary">
+                    <Link href="/profile/Index">
+                    <button className="btn-primary w-full">
                         Login
                     </button>
+                    </Link>
                     <button className="btn-primary !bg-secondary">
                         GITHUB
                     </button>
