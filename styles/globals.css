@@ -29,7 +29,13 @@ body {
   @apply !m-0 !mt-8;
 }
 
-  @keyframes ring {
+
+  .loader{
+    animation: rings 2s linear infinite;
+  }
+
+
+@keyframes rings {
     0%{
       transform:rotate(0deg);
       box-shadow: 1px 5px 2px #ffbe33;
@@ -42,8 +48,4 @@ body {
       transform:rotate(360deg);
       box-shadow: 1px 5px 2px #ffbe33;
     }
-}
-
-.loader{
-  animation: ring 2s linear infinite;
 }

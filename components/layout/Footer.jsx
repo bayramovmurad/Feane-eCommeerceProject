@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "../ui/Title";
-import { FaMapMarkerAlt } from "react-icons/fa"; 
+
 
 const Footer = () => {
   return (

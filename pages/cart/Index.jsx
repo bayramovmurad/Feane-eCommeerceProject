@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Title from "../../components/ui/Title";
+import Link from "next/link";
 const Index = () => {
   return (
     <div className="flex justify-between items-center md:flex-row flex-col">
@@ -55,9 +56,11 @@ const Index = () => {
 
          
           <div>
-            <button className="btn-primary mt-4 md:w-auto w-52">
+           <Link href="/order/Index">
+           <button className="btn-primary mt-4 md:w-auto w-52">
               CHECKOUT NOW!
             </button>
+           </Link>
           </div>
         </div>
       </div>

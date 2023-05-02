@@ -1,10 +1,6 @@
 import Home from "./home"
 import { Inter } from 'next/font/google'
 import Head from 'next/head';
-import Header from "../components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import { useState } from "react";
-import { useEffect } from "react";
 import ProgressBar from "@/components/progress/ProgressBar";
 
 
