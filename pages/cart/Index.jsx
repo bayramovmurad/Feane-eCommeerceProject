@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Title from "../../components/ui/Title";
-import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
+import { reset } from "@/redux/cartSlice";
+
 const Index = () => {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   return (
     <div className="flex justify-between items-center md:flex-row flex-col">
         <div className="md:min-h-[calc(100vh_-_433px)] flex items-center flex-1 p-10 overflow-x-auto w-full">
@@ -24,23 +28,28 @@ const Index = () => {
             </thead>
             <tbody>
               
-              <tr className="transition-all bg-secondary border-gray-700 hover:bg-primary ">
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
-                  <Image src="/images/f1ec.png" alt="" width={50} height={50} />
-                  <span>Good Pizza</span>
-                </td>
-                
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  <span>mayonez, acı sos, ketçap,</span>
-                </td>
-               
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  $20
-                </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  1
-                </td>
-              </tr>
+            {cart.products.map((product) => (
+                <tr
+                  className="transition-all bg-secondary border-gray-700 hover:bg-primary"
+                  key={product.id}
+                >
+                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
+                    <Image src="/images/f1ec.png" alt="" width={50} height={50} />
+                    <span>{product.name}</span>
+                  </td>
+                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    {product.extras.map((item) => (
+                      <span key={item.id}>{item.name}, </span>
+                    ))}
+                  </td>
+                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    ${product.price}
+                  </td>
+                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    {product.quantity}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -49,18 +58,21 @@ const Index = () => {
           <Title addClass="text-[40px]">CART TOTAL</Title>
 
           <div className="mt-6 flex flex-col">
-           <span> <b>Subtotal: </b>$20 </span>
+          <b>Subtotal: </b>${cart.total} <br />
            <span> <b className=" inline-block my-1"> Discount: </b>$0.00</span>
-            <span><b>Total: </b>$20</span>
+           <b>Subtotal: </b>${cart.total} <br />
           </div>
 
          
           <div>
-           <Link href="/order/Index">
-           <button className="btn-primary mt-4 md:w-auto w-52">
+           
+          <button
+              className="btn-primary mt-4 md:w-auto w-52"
+              onClick={() => dispatch(reset())}
+            >
               CHECKOUT NOW!
             </button>
-           </Link>
+          
           </div>
         </div>
       </div>
