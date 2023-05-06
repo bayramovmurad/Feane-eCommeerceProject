@@ -3,9 +3,13 @@ import Input from "@/components/from/Input"
 import Title from "@/components/ui/Title"
 import { useFormik } from "formik"
 import { loginSchema } from "@/schema/Login"
+import { useSession , signIn } from "next-auth/react"
 
 
 const Login = () => {
+    const {data: session} = useSession();
+    console.log(session);
+
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 4000));
         actions.resetFrom();
@@ -63,7 +67,7 @@ const Login = () => {
                         Login
                     </button>
                     </Link>
-                    <button className="btn-primary !bg-secondary">
+                    <button className="btn-primary !bg-secondary" type="button" onClick={() => signIn("github")}>
                         GITHUB
                     </button>
                     <Link href="/auth/Register">
