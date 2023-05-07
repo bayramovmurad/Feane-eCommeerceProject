@@ -3,12 +3,26 @@ import { useFormik } from "formik";
 import Input from "@/components/from/Input";
 import Title from "@/components/ui/Title";
 import Link from "next/link";
+import axios from "axios";
+import { toast } from "react-toastify"
 
 const Register = () => {
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) =>
-            setTimeout(resolve, 4000));
-        actions.resetForm();
+        try {
+            const res = await axios.post(
+                `${process.env.NEXT_PUBLIC_API_URL}/users/register`, values
+            );
+            console.log(res);
+            if (res.status === 200) {
+                toast.success("User created successfully");
+            }
+            
+        } catch (err) {
+            toast.error(err.response.data.message);
+            console.log(err);
+        }
+        actions.resetForm()
+
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } = useFormik({
@@ -64,7 +78,7 @@ const Register = () => {
 
     return (
         <div className="container mx-auto">
-            <form action="" className="flex flex-col items-center my-20 w-full mx-auto md:w-1/2" onSubmit={handleSubmit}>
+            <form className="flex flex-col items-center my-20 w-full mx-auto md:w-1/2" onSubmit={handleSubmit}>
                 <Title addClass="text-[40px] uppercase">
                     Register
                 </Title>
@@ -81,7 +95,7 @@ const Register = () => {
                     }
                 </div>
                 <div className="flex flex-col w-full gap-y-3 mt-6">
-                    <button className="btn-primary uppercase">
+                    <button className="btn-primary uppercase" type="submit">
                         Register
                     </button>
                     <Link href="/auth/Login">
