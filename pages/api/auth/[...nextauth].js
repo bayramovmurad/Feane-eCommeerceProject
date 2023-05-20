@@ -11,7 +11,7 @@ dbConnect();
 
 export const authOptions = {
     // Configure one or more authentication providers
-    // adapter: MongoDBAdapter(clientPromise),
+    // adapter: MongoDBAdapter(clientPromise), 
     providers: [
       GithubProvider({
         clientId: process.env.GITHUB_ID,

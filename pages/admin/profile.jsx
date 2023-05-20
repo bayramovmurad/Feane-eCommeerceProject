@@ -4,10 +4,29 @@ import Products from "@/components/admin/Products";
 import Order from "@/components/admin/Order";
 import Category from "@/components/admin/Catecory";
 import Footer from "@/components/admin/Footer";
+import axios from "axios";
+import {toast} from "react-toastify"
+import {useRouter} from "next/router";
 
 
-const Index = () => {
+
+const Profile = () => {
   const [tabs, setTabs] = useState(0);
+
+  const { push } = useRouter();
+  const closeAdminAccount = async () => {
+    try {
+      if (confirm("Are you sure you want to close your Admin Account?")) {
+        const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`);
+        if (res.status === 200) {
+          push("/admin/login");
+          toast.success("Admin Account Closed!");
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="flex min-h-[calc(100vh_-_433px)] lg:flex-row flex-col lg:mb-0 mb-10">
@@ -63,7 +82,7 @@ const Index = () => {
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 4 && "bg-primary text-white"
             }`}
-            onClick={() => setTabs(4)}
+            onClick={closeAdminAccount}
           >
             <i className="fa fa-sign-out"></i>
             <button className="ml-1">Exit</button>
@@ -78,4 +97,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Profile;

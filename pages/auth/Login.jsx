@@ -17,8 +17,7 @@ const Login = () => {
         /*   actions.resetForm(); */
     };
 
-    console.log(session);
-
+   
 const { values, handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
     initialValues: {
         email: "",
